@@ -8,7 +8,7 @@ Project README
 
 Beta Version 1.0 - "BATTLESNAKES" Prototype
 
-Ammended last: JAN 11 2019
+Ammended last: APR 29 2019
 
 ##--##--##--##
 
