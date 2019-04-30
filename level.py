@@ -111,13 +111,6 @@ class level(object):
         
         ##When all are dead
         if(self.getECount() == 0):
-            
-            ##Arrow to move right
-            pygame.draw.polygon(self.window.frame, (255,0,0), 
-                                ((self.window.getWidth() / 2, self.window.getHeight() / 2),
-                                 (self.window.getWidth() / 2, self.window.getHeight() / 2 + 80),
-                                 (self.window.getWidth() / 2 + 80, self.window.getHeight() / 2 + 40)), 10)
-            
        
             if(player.getScrollCount() / 51 == 1 or 
                player.getScrollCount() / 101 == 1 or 

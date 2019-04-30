@@ -425,16 +425,20 @@ class menu(object):
         font3 = pygame.font.SysFont("Retroville NC", 28, False, False)
        
         ##Cosmetics
-        fader = 1
-        rate = 254
-        if(pygame.time.get_ticks() % rate == 0):
-            fader = fader * -1
+        black = (0,0,0)
+        gray = (127,127,127)
+        white = (255,255,255)
+        if(pygame.time.get_ticks() % 300 >= 200):
         
-        fade = font2.render("P R E S S  _E_  T O  S E L E C T", 
-                            True, ((pygame.time.get_ticks() % rate * fader), 
-                                   (pygame.time.get_ticks() % rate * fader), 
-                                   (pygame.time.get_ticks() % rate * fader)))
-        
+            fade = font2.render("P R E S S  _E_  T O  S E L E C T", 
+                                True, black)
+            
+        elif(pygame.time.get_ticks() % 300 >= 100):
+            fade = font2.render("P R E S S  _E_  T O  S E L E C T", 
+                                True, gray)
+        elif(pygame.time.get_ticks() % 300 >= 0):
+            fade = font2.render("P R E S S  _E_  T O  S E L E C T", 
+                                True, white)
         
         ## ## ## ## ## ## ## ## ## ##
         if(self.getMenuValue() == 0): ##START MENU
@@ -457,7 +461,7 @@ class menu(object):
             credit = font2.render('- V.0.1 - C A P S T O N E    P R O J E C T - M M X I I X - M M X I X', False, (255,255,255))
             
 
-            directions = font2.render('W-A-S-D TO MOVE, T TO USE KATANA', False, (255,0,0))
+            directions = font2.render('ARROWS/W-A-S-D TO MOVE, L-SHIFT/T TO USE KATANA    -', False, (255,0,0))
             
             window.frame.blit(self.menuTitles[0], (0,240))
             
@@ -476,6 +480,8 @@ class menu(object):
                 window.frame.blit(snek,  (window.getWidth() / 2 - 20,160))
             elif(pygame.time.get_ticks() % 400 <= 200):
                 window.frame.blit(snek2, (window.getWidth() / 2 - 20,160))
+            
+            
             
             
             self.drawMenuOptions(window)
@@ -539,6 +545,17 @@ class menu(object):
                 
                 window.frame.blit(self.levelBG[9], (0,160)) ##Grass fade left
                 window.frame.blit(self.levelBG[10], (720,160)) ##Grass fade right
+            
+            if(level.getECount() == 0):
+                
+                onward = font2.render("ONWARD", False, (255,0,0))
+                window.frame.blit(onward, (window.getWidth() / 2 - 30, window.getHeight() / 2 - 40))
+                
+                ##Arrow to move right
+                pygame.draw.polygon(window.frame, (255,0,0), 
+                                    ((window.getWidth() / 2, window.getHeight() / 2),
+                                    (window.getWidth() / 2, window.getHeight() / 2 + 80),
+                                     (window.getWidth() / 2 + 80, window.getHeight() / 2 + 40)))
                 
             
             ## ## ##
